@@ -1,0 +1,78 @@
+.post-container {
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+  .post {
+    display: flex;
+    flex-direction: column;
+    .post-body {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+    }
+    .post-button {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+
+  .user-image {
+    height: 55px;
+    width: 55px;
+    min-height: 55px;
+    min-width: 55px;
+  }
+  .user-title {
+    display: flex;
+  }
+  .card-edit {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .comment {
+    background-color: ghostwhite;
+    padding: 5px;
+    display: flex;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+    .user-image {
+      height: 40px;
+      width: 40px;
+      min-height: 40px;
+      min-width: 40px;
+    }
+  }
+  .comment-reply {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .card-comment {
+    display: flex;
+    flex-direction: column;
+    .comment-body {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+    }
+    .comment-button {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+  .child-comment {
+    margin-left: 45px;
+  }
+}
+
+.auth-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 56px);
+}
+
+.profile-container {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  display: flex;
+}

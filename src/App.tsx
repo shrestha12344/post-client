@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { withRouter } from "react-router";
+import { Switch, Route, Redirect } from "react-router-dom";
+import "./app.scss";
+import Header from "./containers/Header";
+import HomePage from "./containers/HomePage";
+import Signin from "./containers/Signin";
+import Signup from "./containers/Signup";
+import Profile from "./containers/Profile";
 
-function App() {
+const App: React.FC<any> = (props) => {
+  const { history } = props;
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <Switch>
+        <Route exact path="/">
+          <HomePage />
+        </Route>
+        <Route exact path="/signin">
+          <Signin history={history} />
+        </Route>
+        <Route exact path="/signup">
+          <Signup history={history} />
+        </Route>
+        <Route exact path="/profile">
+          {localStorage.token ? <Profile /> : <Redirect to="/signin" />}
+        </Route>
+        <Route>
+          <Redirect to="/" />
+        </Route>
+      </Switch>
+    </>
   );
-}
+};
 
-export default App;
+export default withRouter(App);
